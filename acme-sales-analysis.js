@@ -20,7 +20,10 @@ function topSellingProductByQuantity(orders, products) {
   }, {});
 
   for (let key in QtyByProduct) {
-    if (QtyByProduct[key] > topQty) topSellerId = parseInt(key);
+    if (QtyByProduct[key] > topQty) {
+      topSellerId = parseInt(key);
+      topQty = QtyByProduct[key];
+    }
   }
   return products.find(product => product.id === topSellerId);
 }
